@@ -1,0 +1,11 @@
+.vscode
+node_modules
+src
+.editorconfig
+.gitignore
+.nsprc
+npm-debug.log
+README.md
+tsconfig.json
+tsconfig.lint.json
+tslint.json

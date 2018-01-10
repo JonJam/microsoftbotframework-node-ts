@@ -1,0 +1,62 @@
+{
+  // Use IntelliSense to learn about possible Node.js debug attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug",
+      "program": "${workspaceRoot}/dist/server.js",
+      "restart": true,
+      "smartStep": true,
+      "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+      "preLaunchTask": "npm: build",
+      "protocol": "inspector"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach",
+      "port": 9229,
+      "restart": true,
+      "smartStep": true,
+      "outFiles": [
+        "${workspaceRoot}/dist/**/*.js"
+      ],
+      "protocol": "inspector"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Docker",
+      "port": 9229,
+      "restart": true,
+      "smartStep": true,
+      "localRoot": "${workspaceRoot}",
+      "remoteRoot": "/app",
+      "outFiles": [
+        "${workspaceRoot}/dist/**/*.js"
+      ],
+      "protocol": "inspector"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug in Docker",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["run", "docker-debug"],
+      "port": 9229,
+      "restart": true,
+      "smartStep": true,
+      "localRoot": "${workspaceRoot}",
+      "remoteRoot": "/app",
+      "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+      "preLaunchTask": "npm: build",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}
