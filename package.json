@@ -6,10 +6,12 @@
     "precommit": "lint-staged",
     "start": "node dist/server.js",
     "start-dev": "nodemon --inspect=0.0.0.0:9229 dist/server.js",
-    "build-watch": "npm run build && npm-run-all -p watch start-dev",
+    "build-watch": "npm run build-dev && npm-run-all -p watch start-dev",
     "build": "npm run security-check && npm run build-ts && npm run lint-ts",
+    "build-dev": "npm run security-check && npm run build-ts && npm run lint-ts-dev",
     "build-ts": "tsc",
-    "lint-ts": "tslint -c tslint.json -p tsconfig.lint.json -t stylish --force -e \"**/@types/**\"",
+    "lint-ts": "tslint -c tslint.json -p tsconfig.lint.json -t stylish -e \"**/@types/**\"",
+    "lint-ts-dev": "tslint -c tslint.json -p tsconfig.lint.json -t stylish -e \"**/@types/**\" --force",
     "watch": "tsc -w",
     "security-check": "nsp check",
     "test": "jest",
@@ -20,7 +22,7 @@
     "botbuilder-azure": "^3.0.4",
     "compression": "^1.7.1",
     "debug": "^3.1.0",
-    "express": "~4.15.5",
+    "express": "^4.15.5",
     "helmet": "^3.9.0"
   },
   "devDependencies": {
